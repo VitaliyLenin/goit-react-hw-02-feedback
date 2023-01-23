@@ -8,11 +8,29 @@ class Feedback extends React.Component {
     bad: 0,
   };
 
-  handlePositiveClick = () => {};
+  handlePositiveClick = () => {
+    this.setState(prevState => {
+      return {
+        good: prevState.good + 1,
+      };
+    });
+  };
 
-  handleNeutralClick = () => {};
+  handleNeutralClick = () => {
+    this.setState(prevState => {
+      return {
+        neutral: prevState.neutral + 1,
+      };
+    });
+  };
 
-  handleBadClick = () => {};
+  handleBadClick = () => {
+    this.setState(prevState => {
+      return {
+        bad: prevState.bad + 1,
+      };
+    });
+  };
 
   render() {
     return (
@@ -30,12 +48,20 @@ class Feedback extends React.Component {
           </li>
           <li className={css.list_item}>
             {' '}
-            <button className={css.button} type="button">
+            <button
+              className={css.button}
+              type="button"
+              onClick={this.handleNeutralClick}
+            >
               neutral
             </button>
           </li>
           <li className={css.list_item}>
-            <button className={css.button} type="button">
+            <button
+              className={css.button}
+              type="button"
+              onClick={this.handleBadClick}
+            >
               bad
             </button>
           </li>
