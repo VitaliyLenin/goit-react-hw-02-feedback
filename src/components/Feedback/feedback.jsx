@@ -32,7 +32,21 @@ class Feedback extends React.Component {
     });
   };
 
+  countTotalFeedback() {
+    return this.state.good + this.state.neutral + this.state.bad;
+  }
+
+  countPositiveFeedbackPercentage() {
+    const total = this.countTotalFeedback();
+    if (total === 0) {
+      return 0;
+    }
+    return Math.floor((this.state.good / total) * 100);
+  }
+
   render() {
+    const total = this.countTotalFeedback();
+    const percentage = this.countPositiveFeedbackPercentage();
     return (
       <div className={css.feedback_wrap}>
         <span className={css.feedback_title}> Please leave feedback</span>
@@ -71,6 +85,8 @@ class Feedback extends React.Component {
           <p className={css.stat_text}>Good: {this.state.good}</p>
           <p className={css.stat_text}>Neutral: {this.state.neutral}</p>
           <p className={css.stat_text}>Bad: {this.state.bad}</p>
+          <p className={css.stat_text}>Total: {total}</p>
+          <p className={css.stat_text}>Positive feedback: {percentage}%</p>
         </div>
       </div>
     );
