@@ -1,0 +1,9 @@
+.feedback {
+  /* display: flex; */
+  align-content: center;
+}
+
+.title {
+  display: block;
+  font-size: 40px;
+}
