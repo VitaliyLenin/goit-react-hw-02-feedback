@@ -9,27 +9,21 @@ class Feedback extends React.Component {
   };
 
   handlePositiveClick = () => {
-    this.setState(prevState => {
-      return {
-        good: prevState.good + 1,
-      };
-    });
+    this.setState(prevState => ({
+      good: prevState.good + 1,
+    }));
   };
 
   handleNeutralClick = () => {
-    this.setState(prevState => {
-      return {
-        neutral: prevState.neutral + 1,
-      };
-    });
+    this.setState(prevState => ({
+      neutral: prevState.neutral + 1,
+    }));
   };
 
   handleBadClick = () => {
-    this.setState(prevState => {
-      return {
-        bad: prevState.bad + 1,
-      };
-    });
+    this.setState(prevState => ({
+      bad: prevState.bad + 1,
+    }));
   };
 
   countTotalFeedback() {
@@ -47,6 +41,7 @@ class Feedback extends React.Component {
   render() {
     const total = this.countTotalFeedback();
     const percentage = this.countPositiveFeedbackPercentage();
+
     return (
       <div className={css.feedback_wrap}>
         <span className={css.feedback_title}> Please leave feedback</span>
