@@ -10,7 +10,8 @@
 
 import css from './Feedback/feedback.module.css';
 import React from 'react';
-// import Statistics from 'components/Statistics/statistics';
+import Statistics from './Statistics/statistics';
+import Section from './Section/Section';
 
 class App extends React.Component {
   state = {
@@ -55,7 +56,8 @@ class App extends React.Component {
 
     return (
       <div className={css.feedback_wrap}>
-        <span className={css.feedback_title}> Please leave feedback</span>
+        {/* <span className={css.feedback_title}> Please leave feedback</span> */}
+        <Section title="Please leave feedback"></Section>
         <ul className={css.btnlist}>
           <li className={css.list_item}>
             <button
@@ -86,7 +88,14 @@ class App extends React.Component {
             </button>
           </li>
         </ul>
-        <div className={css.stat_wrap}>
+        <Statistics
+          good={this.state.good}
+          neutral={this.state.neutral}
+          bad={this.state.bad}
+          total={total}
+          positivePercentage={this.countPositiveFeedbackPercentage()}
+        />
+        {/* <div className={css.stat_wrap}>
           <span className={css.stat_title}>Statistics</span>
           <p className={css.stat_text}>Good: {this.state.good}</p>
           <p className={css.stat_text}>Neutral: {this.state.neutral}</p>
@@ -95,14 +104,7 @@ class App extends React.Component {
           <p className={css.stat_text}>
             Positive feedback: {this.countPositiveFeedbackPercentage()}%
           </p>
-        </div>
-        {/* <Statistics
-          good={this.state.good}
-          neutral={this.state.neutral}
-          bad={this.state.bad}
-          total={total}
-          percentage={this.countPositiveFeedbackPercentage()}
-        /> */}
+        </div> */}
       </div>
     );
   }
